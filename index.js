@@ -52,3 +52,5 @@ function loginVerification(username,password,clbk){
         clbk(null,"username or passward is incorrect")
     }
 }
+
+loginVerification("hi40","12345678",login)
