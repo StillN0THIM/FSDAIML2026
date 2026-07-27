@@ -36,14 +36,7 @@
 
 // sumWithMsg(sum, "The sum is");
 
-function login(msg,error){
-    if(error){
-        console.log("error :"+error0)
-    }
-    else{
-        console.log("Welcome"+msg)
-    }
-}
+~
 
 function loginVerification(username,password,clbk){
     if(username=="hi40"&& password=="12345678"){
