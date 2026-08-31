@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+        <div class="stats">
+            <div class="stat-box">
+                <h2 id="totalTasks">0</h2>
+                <p>Total Tasks</p>
+            </div>
+            <div class="stat-box">
+                <h2 id="completedTasks">0</h2>
+                <p>Completed</p>
+            </div>
+            <div class="stat-box">
+                <h2 id="pendingTasks">0</h2>
+                <p>Pending</p>
+            </div>
+        </div>
+        <div class="add-task">
+            <input type="text" id="taskInput" placeholder="Enter a task...">
+            <button id="addTaskBtn">
+                Add Task
+            </button>
+        </div>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
+            <button class="filter-btn" data-filter="pending">
+                Pending
+            </button>
+            <button class="filter-btn" data-filter="completed">
+                Completed
+            </button>
+        </div>
+        <div id="taskList">
+        </div>
+    </div>
+    <script src="task.js"></script>
+</body>
+</html>
