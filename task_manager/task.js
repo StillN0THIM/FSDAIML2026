@@ -1,35 +1,12 @@
-// ==========================================
-// TASK MANAGER
-// ==========================================
-
-
-// Store all tasks
 let tasks = [];
-
-
-// Current filter
 let currentFilter = "all";
-
-
-// Get HTML elements
 const taskInput = document.getElementById("taskInput");
-
 const addTaskBtn = document.getElementById("addTaskBtn");
-
 const taskList = document.getElementById("taskList");
-
 const totalTasks = document.getElementById("totalTasks");
-
 const completedTasks = document.getElementById("completedTasks");
-
 const pendingTasks = document.getElementById("pendingTasks");
-
 const filterButtons = document.querySelectorAll(".filter-btn");
-
-
-// ==========================================
-// LOAD TASKS
-// ==========================================
 
 function loadTasks() {
 
