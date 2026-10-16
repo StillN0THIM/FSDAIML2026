@@ -1,0 +1,244 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --border: #d9d5cc;
+  --border-hover: #b0aa9e;
+  --accent: #3d5a80;
+  --accent-hover: #2e4460;
+  --text: #1a1a1a;
+  --text-muted: #7a746a;
+  --danger: #c0392b;
+  --danger-hover: #a93226;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem 4rem;
+}
+
+#root {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* ── header ── */
+.app-header {
+  margin-bottom: 1.75rem;
+  text-align: left;
+}
+
+.app-header h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1;
+}
+
+.subtitle {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ── drop zone ── */
+.drop-zone {
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.drop-zone:hover:not(.has-image),
+.drop-zone:focus-visible:not(.has-image) {
+  border-color: var(--border-hover);
+  background: #fafaf7;
+  outline: none;
+}
+
+.drop-zone.drag-over {
+  border-color: var(--accent);
+  background: #eef2f7;
+}
+
+.drop-zone.has-image {
+  cursor: default;
+  border-style: solid;
+  border-color: var(--border);
+  min-height: 360px;
+}
+
+/* ── empty state ── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  pointer-events: none;
+  user-select: none;
+}
+
+.upload-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.25rem;
+  opacity: 0.6;
+}
+
+.empty-state span {
+  font-size: 0.95rem;
+}
+
+.hint {
+  font-size: 0.8rem !important;
+  opacity: 0.7;
+}
+
+/* ── preview ── */
+.preview-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.preview-img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: rotate 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-img {
+    transition: none;
+  }
+}
+
+/* ── hidden file input ── */
+.hidden-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── controls ── */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.degree-badge {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 3.5rem;
+  text-align: center;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+  line-height: 1;
+  font-family: inherit;
+}
+
+.btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn-rotate {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.btn-rotate:hover:not(:disabled) {
+  border-color: var(--border-hover);
+  background: #f7f6f3;
+}
+
+.btn-rotate svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.action-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
